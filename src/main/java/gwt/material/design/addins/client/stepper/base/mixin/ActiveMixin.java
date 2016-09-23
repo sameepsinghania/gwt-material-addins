@@ -20,16 +20,16 @@ package gwt.material.design.addins.client.stepper.base.mixin;
  * #L%
  */
 
+import gwt.material.design.client.base.HasActive;
+
 import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.client.base.HasActive;
 
 /**
  * @author kevzlou7979
  */
 public class ActiveMixin<T extends UIObject & HasActive> extends AbstractMixin<T> implements HasActive {
 
-    private static final String ACTIVE = "active";
     public ActiveMixin(final T widget) {
         super(widget);
     }
@@ -38,8 +38,8 @@ public class ActiveMixin<T extends UIObject & HasActive> extends AbstractMixin<T
     @Override
     public void setActive(boolean active) {
         this.active = active;
-        Widget obj = (Widget) uiObject;
-        if(active) {
+        Widget obj = (Widget)uiObject;
+        if (active) {
             obj.removeStyleName("inactive");
             obj.addStyleName("active");
         } else {

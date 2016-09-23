@@ -21,8 +21,7 @@ package gwt.material.design.addins.client.splitpanel;
  */
 
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
+import static gwt.material.design.addins.client.splitpanel.js.JsSplitPanel.$;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.splitpanel.constants.Dock;
 import gwt.material.design.addins.client.splitpanel.js.JsSplitPanel;
@@ -31,7 +30,8 @@ import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.constants.Axis;
 
-import static gwt.material.design.addins.client.splitpanel.js.JsSplitPanel.$;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 
 //@formatter:off
 

@@ -21,9 +21,10 @@ package gwt.material.design.addins.client.combobox.events;
  */
 
 
+import gwt.material.design.addins.client.combobox.base.HasRemoveItemHandler;
+
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
-import gwt.material.design.addins.client.combobox.base.HasRemoveItemHandler;
 
 /**
  * Combobox event fired once user removes an item from multiple list selection.

@@ -20,13 +20,12 @@ package gwt.material.design.addins.client.fileuploader.base.mixin;
  * #L%
  */
 
-import com.google.gwt.user.client.ui.UIObject;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.stepper.base.mixin.AbstractMixin;
-import gwt.material.design.client.base.HasActive;
 import gwt.material.design.client.base.HasTitle;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.ui.html.Span;
+
+import com.google.gwt.user.client.ui.UIObject;
 
 public class TitleMixin<T extends UIObject & HasTitle> extends AbstractMixin<T> implements HasTitle {
 

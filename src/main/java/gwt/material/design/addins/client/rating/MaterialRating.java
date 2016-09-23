@@ -20,20 +20,19 @@ package gwt.material.design.addins.client.rating;
  * #L%
  */
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.*;
+import gwt.material.design.client.base.MaterialWidget;
+import gwt.material.design.client.constants.IconType;
+import gwt.material.design.client.ui.MaterialIcon;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import com.google.gwt.event.dom.client.MouseOutHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.HasValue;
-import gwt.material.design.client.base.MaterialWidget;
-import gwt.material.design.client.constants.IconType;
-import gwt.material.design.client.ui.MaterialIcon;
-import gwt.material.design.client.ui.MaterialToast;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * <p>

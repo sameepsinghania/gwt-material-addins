@@ -21,11 +21,12 @@ package gwt.material.design.addins.client.richeditor.base;
  */
 
 
-import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.dom.client.Document;
 import gwt.material.design.addins.client.richeditor.base.constants.ToolbarButton;
 import gwt.material.design.client.base.HasPlaceholder;
 import gwt.material.design.client.base.MaterialWidget;
+
+import com.google.gwt.core.client.JsArrayString;
+import com.google.gwt.dom.client.Document;
 
 /**
  * Base widget for Rich Editor with specific properties for options

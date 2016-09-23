@@ -20,19 +20,20 @@ package gwt.material.design.addins.client.tree.base.mixin;
  * #L%
  */
 
+import gwt.material.design.addins.client.stepper.base.mixin.AbstractMixin;
+import gwt.material.design.addins.client.tree.MaterialTree;
+import gwt.material.design.addins.client.tree.MaterialTreeItem;
+import gwt.material.design.addins.client.tree.base.HasTreeItems;
+import gwt.material.design.client.base.HasFontSize;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.CloseEvent;
 import com.google.gwt.event.logical.shared.OpenEvent;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.addins.client.stepper.base.mixin.AbstractMixin;
-import gwt.material.design.addins.client.tree.base.HasTreeItems;
-import gwt.material.design.addins.client.tree.MaterialTree;
-import gwt.material.design.addins.client.tree.MaterialTreeItem;
-import gwt.material.design.client.base.HasFontSize;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author kevzlou7979
@@ -44,17 +45,17 @@ public class TreeItemMixin<T extends Widget & HasFontSize> extends AbstractMixin
     private MaterialTree tree;
     private MaterialTreeItem parentTree;
     private Object object;
+
     public TreeItemMixin(final T widget) {
         super(widget);
     }
 
-
     @Override
     public void initTreeItem() {
-        MaterialTreeItem item = (MaterialTreeItem) uiObject;
+        MaterialTreeItem item = (MaterialTreeItem)uiObject;
         // Fire selection event
         SelectionEvent.fire(getTree(), item);
-        if(!getTreeItems().isEmpty()) {
+        if (!getTreeItems().isEmpty()) {
             for (MaterialTreeItem treeItem : getTreeItems()) {
                 if (hide) {
                     treeItem.setVisible(false);
@@ -115,18 +116,19 @@ public class TreeItemMixin<T extends Widget & HasFontSize> extends AbstractMixin
 
     @Override
     public void expand() {
-        for(MaterialTreeItem item : getTreeItems()){
+        for (MaterialTreeItem item : getTreeItems()) {
             item.setVisible(true);
         }
     }
 
     @Override
     public void collapse() {
-        for(MaterialTreeItem item : getTreeItems()){
+        for (MaterialTreeItem item : getTreeItems()) {
             item.setVisible(false);
         }
     }
 
+    @Override
     public boolean isHide() {
         return hide;
     }
@@ -163,14 +165,15 @@ public class TreeItemMixin<T extends Widget & HasFontSize> extends AbstractMixin
         getMaterialTreeItem().getTree().initTree(getMaterialTreeItem());
     }
 
+    @Override
     public void setHide(boolean hide) {
         this.hide = hide;
     }
 
-    protected MaterialTreeItem getMaterialTreeItem(){
-        if(uiObject instanceof MaterialTreeItem){
+    protected MaterialTreeItem getMaterialTreeItem() {
+        if (uiObject instanceof MaterialTreeItem) {
             return (MaterialTreeItem)uiObject;
-        }else{
+        } else {
             GWT.log("Widget is not instanceof MaterialTreeItem");
             return null;
         }

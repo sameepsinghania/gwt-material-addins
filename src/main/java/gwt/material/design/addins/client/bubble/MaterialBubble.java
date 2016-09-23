@@ -20,8 +20,7 @@ package gwt.material.design.addins.client.bubble;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
+import static gwt.material.design.addins.client.bubble.js.JsBubble.$;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.bubble.js.JsBubbleOptions;
 import gwt.material.design.client.MaterialDesignBase;
@@ -31,7 +30,8 @@ import gwt.material.design.client.base.helper.ColorHelper;
 import gwt.material.design.client.base.mixin.CssNameMixin;
 import gwt.material.design.client.constants.Position;
 
-import static gwt.material.design.addins.client.bubble.js.JsBubble.$;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 
 //@formatter:off
 

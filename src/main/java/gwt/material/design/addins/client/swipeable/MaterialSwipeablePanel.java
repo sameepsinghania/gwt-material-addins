@@ -36,10 +36,6 @@ package gwt.material.design.addins.client.swipeable;
  * the License.
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.swipeable.base.HasSwipeable;
 import gwt.material.design.addins.client.swipeable.events.SwipeLeftEvent;
@@ -48,6 +44,11 @@ import gwt.material.design.addins.client.swipeable.js.JsSwipeable;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.jquery.client.api.Functions;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * A panel that allows any of its nested children to be swiped away.

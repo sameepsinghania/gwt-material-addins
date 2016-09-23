@@ -20,7 +20,6 @@ package gwt.material.design.addins.client.iconmorph;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
@@ -28,6 +27,8 @@ import gwt.material.design.client.base.mixin.CssNameMixin;
 import gwt.material.design.client.constants.IconSize;
 import gwt.material.design.client.ui.MaterialIcon;
 import gwt.material.design.client.ui.MaterialToast;
+
+import com.google.gwt.dom.client.Document;
 
 //@formatter:off
 /**

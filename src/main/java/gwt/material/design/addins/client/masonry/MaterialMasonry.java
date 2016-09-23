@@ -20,17 +20,17 @@ package gwt.material.design.addins.client.masonry;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
+import static gwt.material.design.addins.client.masonry.js.JsMasonry.$;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.masonry.js.JsMasonryOptions;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.ui.MaterialRow;
 
-import static gwt.material.design.addins.client.masonry.js.JsMasonry.$;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 

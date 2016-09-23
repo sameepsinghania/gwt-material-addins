@@ -20,13 +20,13 @@ package gwt.material.design.addins.client.pathanimator;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Style;
+import static gwt.material.design.jquery.client.api.JQuery.$;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.pathanimator.js.JsPathAnimator;
 import gwt.material.design.client.MaterialDesignBase;
 
-import static gwt.material.design.jquery.client.api.JQuery.$;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Style;
 
 //@formatter:off
 

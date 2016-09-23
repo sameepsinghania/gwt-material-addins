@@ -21,8 +21,9 @@ package gwt.material.design.addins.client.fileuploader;
  */
 
 
-import com.google.gwt.dom.client.Document;
 import gwt.material.design.client.base.MaterialWidget;
+
+import com.google.gwt.dom.client.Document;
 
 public class MaterialUploadPreview extends MaterialWidget {
 

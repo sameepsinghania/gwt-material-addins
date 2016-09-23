@@ -20,20 +20,14 @@ package gwt.material.design.addins.client.autocomplete;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.HasKeyUpHandlers;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.event.logical.shared.*;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.*;
-import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.autocomplete.constants.AutocompleteType;
 import gwt.material.design.client.MaterialDesignBase;
-import gwt.material.design.client.base.*;
+import gwt.material.design.client.base.HasError;
+import gwt.material.design.client.base.HasPlaceholder;
+import gwt.material.design.client.base.HasProgress;
+import gwt.material.design.client.base.HasType;
+import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.base.mixin.CssTypeMixin;
 import gwt.material.design.client.base.mixin.ErrorMixin;
 import gwt.material.design.client.base.mixin.FocusableMixin;
@@ -42,11 +36,37 @@ import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.constants.ProgressType;
 import gwt.material.design.client.ui.MaterialChip;
 import gwt.material.design.client.ui.MaterialLabel;
-import gwt.material.design.client.ui.html.*;
 import gwt.material.design.client.ui.html.Label;
+import gwt.material.design.client.ui.html.ListItem;
+import gwt.material.design.client.ui.html.UnorderedList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.HasKeyUpHandlers;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.SuggestBox;
+import com.google.gwt.user.client.ui.SuggestOracle;
+import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 /**
@@ -161,10 +181,11 @@ import java.util.Map.Entry;
  */
 // @formatter:on
 public class MaterialAutoComplete extends MaterialWidget implements HasError, HasPlaceholder,
-        HasValue<List<? extends Suggestion>>, HasProgress, HasKeyUpHandlers, HasType<AutocompleteType>, HasSelectionHandlers<Suggestion> {
+        HasValue<List<? extends Suggestion>>, HasProgress, HasKeyUpHandlers, HasType<AutocompleteType>,
+        HasSelectionHandlers<Suggestion> {
 
     static {
-        if(MaterialAddins.isDebug()) {
+        if (MaterialAddins.isDebug()) {
             MaterialDesignBase.injectCss(MaterialAutocompleteDebugClientBundle.INSTANCE.autocompleteCssDebug());
         } else {
             MaterialDesignBase.injectCss(MaterialAutocompleteClientBundle.INSTANCE.autocompleteCss());
@@ -188,8 +209,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
     private boolean directInputAllowed = true;
     private MaterialChipProvider chipProvider = new DefaultMaterialChipProvider();
 
-    private final ErrorMixin<MaterialAutoComplete, MaterialLabel> errorMixin = new ErrorMixin<>(this,
-            lblError, list);
+    private final ErrorMixin<MaterialAutoComplete, MaterialLabel> errorMixin = new ErrorMixin<>(this, lblError, list);
 
     private FocusableMixin<MaterialWidget> focusableMixin;
 
@@ -243,7 +263,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
         }, ClickEvent.getType());
 
         itemBox.addBlurHandler(blurEvent -> {
-            if(getValue().size() > 0) {
+            if (getValue().size() > 0) {
                 label.addStyleName("active");
             }
         });
@@ -271,54 +291,53 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
                         if (itemsHighlighted.isEmpty()) {
                             if (suggestionMap.size() > 0) {
 
-                                ListItem li = (ListItem) list.getWidget(list.getWidgetCount() - 2);
-                                MaterialChip p = (MaterialChip) li.getWidget(0);
+                                ListItem li = (ListItem)list.getWidget(list.getWidgetCount() - 2);
+                                MaterialChip p = (MaterialChip)li.getWidget(0);
 
                                 boolean removable = true;
 
                                 Set<Entry<Suggestion, Widget>> entrySet = suggestionMap.entrySet();
                                 for (Entry<Suggestion, Widget> entry : entrySet) {
                                     if (p.equals(entry.getValue())) {
-                                        if (chipProvider.isChipRemovable(entry.getKey())){
+                                        if (chipProvider.isChipRemovable(entry.getKey())) {
                                             suggestionMap.remove(entry.getKey());
                                             itemsChanged = true;
-                                        }
-                                        else {
+                                        } else {
                                             removable = false;
                                         }
                                         break;
                                     }
                                 }
 
-                                if (removable){
+                                if (removable) {
                                     list.remove(li);
                                 }
                             }
                         }
                     }
 
+                    //$FALL-THROUGH$
                 case KeyCodes.KEY_DELETE:
                     if (itemBox.getValue().trim().isEmpty()) {
                         for (ListItem li : itemsHighlighted) {
-                            MaterialChip p = (MaterialChip) li.getWidget(0);
+                            MaterialChip p = (MaterialChip)li.getWidget(0);
 
                             boolean removable = true;
 
                             Set<Entry<Suggestion, Widget>> entrySet = suggestionMap.entrySet();
                             for (Entry<Suggestion, Widget> entry : entrySet) {
                                 if (p.equals(entry.getValue())) {
-                                    if (chipProvider.isChipRemovable(entry.getKey())){
+                                    if (chipProvider.isChipRemovable(entry.getKey())) {
                                         suggestionMap.remove(entry.getKey());
                                         itemsChanged = true;
-                                    }
-                                    else {
+                                    } else {
                                         removable = false;
                                     }
                                     break;
                                 }
                             }
 
-                            if (removable){
+                            if (removable) {
                                 li.removeFromParent();
                             }
                         }
@@ -337,7 +356,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
             box.showSuggestionList();
         });
 
-        box.addSelectionHandler(selectionEvent ->  {
+        box.addSelectionHandler(selectionEvent -> {
             Suggestion selectedItem = selectionEvent.getSelectedItem();
             itemBox.setValue("");
             if (addItem(selectedItem)) {
@@ -347,8 +366,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
         });
 
         panel.add(list);
-        panel.getElement().setAttribute("onclick",
-                "document.getElementById('" + autocompleteId + "').focus()");
+        panel.getElement().setAttribute("onclick", "document.getElementById('" + autocompleteId + "').focus()");
         panel.add(lblError);
         box.setFocus(true);
     }
@@ -371,19 +389,18 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
         final ListItem displayItem = new ListItem();
         displayItem.setStyleName("multiValueSuggestBox-token");
 
-        if (getType() == AutocompleteType.TEXT){
+        if (getType() == AutocompleteType.TEXT) {
             suggestionMap.clear();
             itemBox.setText(suggestion.getDisplayString());
             displayItem.add(itemBox);
-        }
-        else {
+        } else {
             final MaterialChip chip = chipProvider.getChip(suggestion);
             if (chip == null) {
                 return false;
             }
 
             chip.addClickHandler(event -> {
-                if (chipProvider.isChipSelectable(suggestion)){
+                if (chipProvider.isChipSelectable(suggestion)) {
                     if (itemsHighlighted.contains(displayItem)) {
                         chip.removeStyleName(selectedChipStyle);
                         itemsHighlighted.remove(displayItem);
@@ -394,9 +411,9 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
                 }
             });
 
-            if (chip.getIcon() != null){
+            if (chip.getIcon() != null) {
                 chip.getIcon().addClickHandler(event -> {
-                    if (chipProvider.isChipRemovable(suggestion)){
+                    if (chipProvider.isChipRemovable(suggestion)) {
                         suggestionMap.remove(suggestion);
                         list.remove(displayItem);
                         itemsHighlighted.remove(displayItem);
@@ -417,6 +434,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
     /**
      * Clear the chip items on the autocomplete box
      */
+    @Override
     public void clear() {
         itemBox.setValue("");
 
@@ -434,7 +452,9 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
 
     @Override
     protected FocusableMixin<MaterialWidget> getFocusableMixin() {
-        if(focusableMixin == null) { focusableMixin = new FocusableMixin<>(new MaterialWidget(itemBox.getElement())); }
+        if (focusableMixin == null) {
+            focusableMixin = new FocusableMixin<>(new MaterialWidget(itemBox.getElement()));
+        }
         return focusableMixin;
     }
 
@@ -624,7 +644,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
     @Override
     public HandlerRegistration addKeyUpHandler(final KeyUpHandler handler) {
         return itemBox.addKeyUpHandler(event -> {
-            if(isEnabled()){
+            if (isEnabled()) {
                 handler.onKeyUp(event);
             }
         });
@@ -645,7 +665,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
         return addHandler(new SelectionHandler<Suggestion>() {
             @Override
             public void onSelection(SelectionEvent<Suggestion> event) {
-                if(isEnabled()){
+                if (isEnabled()) {
                     handler.onSelection(event);
                 }
             }
@@ -747,7 +767,7 @@ public class MaterialAutoComplete extends MaterialWidget implements HasError, Ha
         return addHandler(new ValueChangeHandler<List<? extends Suggestion>>() {
             @Override
             public void onValueChange(ValueChangeEvent<List<? extends Suggestion>> event) {
-                if(isEnabled()){
+                if (isEnabled()) {
                     handler.onValueChange(event);
                 }
             }

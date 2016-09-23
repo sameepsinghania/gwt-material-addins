@@ -20,9 +20,10 @@ package gwt.material.design.addins.client;
  * #L%
  */
 
+import gwt.material.design.addins.client.StartupState.DebugState;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import gwt.material.design.addins.client.StartupState.DebugState;
 
 public class MaterialAddins implements EntryPoint {
 

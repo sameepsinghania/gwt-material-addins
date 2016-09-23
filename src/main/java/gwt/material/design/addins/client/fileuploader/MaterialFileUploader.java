@@ -21,12 +21,6 @@ package gwt.material.design.addins.client.fileuploader;
  */
 
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.dnd.events.DragEndEvent;
 import gwt.material.design.addins.client.dnd.events.DragStartEvent;
@@ -34,12 +28,33 @@ import gwt.material.design.addins.client.fileuploader.base.HasFileUpload;
 import gwt.material.design.addins.client.fileuploader.base.UploadFile;
 import gwt.material.design.addins.client.fileuploader.base.UploadResponse;
 import gwt.material.design.addins.client.fileuploader.constants.FileMethod;
-import gwt.material.design.addins.client.fileuploader.events.*;
+import gwt.material.design.addins.client.fileuploader.events.AddedFileEvent;
+import gwt.material.design.addins.client.fileuploader.events.CanceledEvent;
+import gwt.material.design.addins.client.fileuploader.events.CompleteEvent;
+import gwt.material.design.addins.client.fileuploader.events.DragEnterEvent;
+import gwt.material.design.addins.client.fileuploader.events.DragLeaveEvent;
+import gwt.material.design.addins.client.fileuploader.events.DragOverEvent;
+import gwt.material.design.addins.client.fileuploader.events.DropEvent;
+import gwt.material.design.addins.client.fileuploader.events.ErrorEvent;
+import gwt.material.design.addins.client.fileuploader.events.MaxFilesExceededEvent;
+import gwt.material.design.addins.client.fileuploader.events.MaxFilesReachedEvent;
+import gwt.material.design.addins.client.fileuploader.events.RemovedFileEvent;
+import gwt.material.design.addins.client.fileuploader.events.SendingEvent;
+import gwt.material.design.addins.client.fileuploader.events.SuccessEvent;
+import gwt.material.design.addins.client.fileuploader.events.TotalUploadProgressEvent;
+import gwt.material.design.addins.client.fileuploader.events.UnauthorizedEvent;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.constants.Display;
 
 import java.util.Date;
+
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 

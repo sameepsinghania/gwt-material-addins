@@ -21,8 +21,13 @@ package gwt.material.design.addins.client.dnd.base;
  */
 
 
+import gwt.material.design.addins.client.dnd.events.DragEnterEvent;
+import gwt.material.design.addins.client.dnd.events.DragLeaveEvent;
+import gwt.material.design.addins.client.dnd.events.DropActivateEvent;
+import gwt.material.design.addins.client.dnd.events.DropDeactivateEvent;
+import gwt.material.design.addins.client.dnd.events.DropEvent;
+
 import com.google.gwt.event.shared.HandlerRegistration;
-import gwt.material.design.addins.client.dnd.events.*;
 
 /**
  * Drop events and properties

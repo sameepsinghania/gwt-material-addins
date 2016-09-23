@@ -20,15 +20,16 @@ package gwt.material.design.addins.client.subheader;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.subheader.constants.SubHeaderType;
 import gwt.material.design.addins.client.subheader.js.JsSubHeader;
 import gwt.material.design.client.base.HasType;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.base.mixin.CssTypeMixin;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 

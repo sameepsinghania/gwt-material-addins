@@ -36,9 +36,10 @@ package gwt.material.design.addins.client.swipeable.events;
  */
 
 
+import gwt.material.design.addins.client.swipeable.base.HasSwipeable;
+
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
-import gwt.material.design.addins.client.swipeable.base.HasSwipeable;
 
 /**
  * Represents a swipe left event.

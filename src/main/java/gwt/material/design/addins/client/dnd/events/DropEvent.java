@@ -21,10 +21,11 @@ package gwt.material.design.addins.client.dnd.events;
  */
 
 
+import gwt.material.design.jquery.client.api.JQueryElement;
+
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HasHandlers;
-import gwt.material.design.jquery.client.api.JQueryElement;
 
 public class DropEvent extends GwtEvent<DropEvent.DropHandler> {
 

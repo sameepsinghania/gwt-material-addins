@@ -20,12 +20,6 @@ package gwt.material.design.addins.client.tree;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.tree.base.HasTreeItems;
 import gwt.material.design.addins.client.tree.base.mixin.TreeItemMixin;
 import gwt.material.design.client.base.AbstractIconButton;
@@ -35,6 +29,12 @@ import gwt.material.design.client.ui.MaterialImage;
 import gwt.material.design.client.ui.html.Span;
 
 import java.util.List;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.resources.client.ImageResource;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 /**

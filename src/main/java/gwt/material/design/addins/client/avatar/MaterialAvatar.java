@@ -20,11 +20,12 @@ package gwt.material.design.addins.client.avatar;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.avatar.js.JsAvatar;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
+
+import com.google.gwt.dom.client.Document;
 
 //@formatter:off
 

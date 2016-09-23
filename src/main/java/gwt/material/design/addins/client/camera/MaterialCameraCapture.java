@@ -20,17 +20,18 @@ package gwt.material.design.addins.client.camera;
  * #L%
  */
 
+import gwt.material.design.addins.client.camera.base.HasCameraCaptureHandlers;
+import gwt.material.design.addins.client.camera.events.CameraCaptureEvent;
+import gwt.material.design.addins.client.camera.events.CameraCaptureEvent.CaptureStatus;
+import gwt.material.design.addins.client.camera.events.CameraCaptureHandler;
+import gwt.material.design.client.base.MaterialWidget;
+
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.VideoElement;
 import com.google.gwt.event.shared.HandlerRegistration;
-import gwt.material.design.addins.client.camera.base.HasCameraCaptureHandlers;
-import gwt.material.design.addins.client.camera.events.CameraCaptureEvent;
-import gwt.material.design.addins.client.camera.events.CameraCaptureEvent.CaptureStatus;
-import gwt.material.design.addins.client.camera.events.CameraCaptureHandler;
-import gwt.material.design.client.base.MaterialWidget;
 
 //@formatter:off
 /**

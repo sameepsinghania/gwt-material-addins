@@ -21,12 +21,13 @@ package gwt.material.design.addins.client.masonry.js;
  */
 
 
-import com.google.gwt.dom.client.Element;
 import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jquery.client.api.JQueryElement;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+
+import com.google.gwt.dom.client.Element;
 
 /**
  * JSInterop utils for masonry component

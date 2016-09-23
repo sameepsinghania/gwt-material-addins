@@ -20,12 +20,13 @@ package gwt.material.design.addins.client.dnd.base;
  * #L%
  */
 
-import com.google.gwt.event.shared.HandlerRegistration;
 import gwt.material.design.addins.client.dnd.constants.Restriction;
 import gwt.material.design.addins.client.dnd.events.DragEndEvent;
 import gwt.material.design.addins.client.dnd.events.DragMoveEvent;
 import gwt.material.design.addins.client.dnd.events.DragStartEvent;
 import gwt.material.design.client.base.MaterialWidget;
+
+import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * Drag Events and properties

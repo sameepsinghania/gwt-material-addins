@@ -21,14 +21,7 @@ package gwt.material.design.addins.client.combobox;
  */
 
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.logical.shared.*;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.ui.HasConstrainedValue;
-import com.google.gwt.user.client.ui.Widget;
+import static gwt.material.design.addins.client.combobox.js.JsComboBox.$;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.combobox.base.HasRemoveItemHandler;
 import gwt.material.design.addins.client.combobox.events.ComboBoxEvents;
@@ -48,7 +41,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static gwt.material.design.addins.client.combobox.js.JsComboBox.$;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Style;
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
+import com.google.gwt.event.logical.shared.HasCloseHandlers;
+import com.google.gwt.event.logical.shared.HasOpenHandlers;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
+import com.google.gwt.event.logical.shared.OpenEvent;
+import com.google.gwt.event.logical.shared.OpenHandler;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.HasConstrainedValue;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 

@@ -21,15 +21,20 @@ package gwt.material.design.addins.client.fileuploader;
  */
 
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Style;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.constants.ButtonType;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.constants.ProgressType;
-import gwt.material.design.client.constants.WavesType;
-import gwt.material.design.client.ui.*;
+import gwt.material.design.client.ui.MaterialButton;
+import gwt.material.design.client.ui.MaterialCollection;
+import gwt.material.design.client.ui.MaterialCollectionItem;
+import gwt.material.design.client.ui.MaterialCollectionSecondary;
+import gwt.material.design.client.ui.MaterialIcon;
+import gwt.material.design.client.ui.MaterialProgress;
 import gwt.material.design.client.ui.html.Span;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Style;
 
 public class MaterialUploadCollection extends MaterialCollection {
 

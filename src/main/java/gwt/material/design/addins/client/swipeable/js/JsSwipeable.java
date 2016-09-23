@@ -21,13 +21,13 @@ package gwt.material.design.addins.client.swipeable.js;
  */
 
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.jquery.client.api.Functions;
 import gwt.material.design.jquery.client.api.JQueryElement;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+
+import com.google.gwt.dom.client.Element;
 
 /**
  * Created by Mark Kevin on 8/23/2016.

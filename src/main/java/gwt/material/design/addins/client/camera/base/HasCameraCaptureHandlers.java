@@ -20,8 +20,8 @@ package gwt.material.design.addins.client.camera.base;
  * #L%
  */
 
-import gwt.material.design.addins.client.camera.events.CameraCaptureHandler;
 import gwt.material.design.addins.client.camera.MaterialCameraCapture;
+import gwt.material.design.addins.client.camera.events.CameraCaptureHandler;
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.HasHandlers;

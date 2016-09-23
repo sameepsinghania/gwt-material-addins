@@ -21,19 +21,31 @@ package gwt.material.design.addins.client.dnd;
  */
 
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.shared.HandlerRegistration;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.dnd.base.DndHelper;
 import gwt.material.design.addins.client.dnd.base.HasDraggable;
 import gwt.material.design.addins.client.dnd.base.HasDrop;
 import gwt.material.design.addins.client.dnd.constants.Restriction;
-import gwt.material.design.addins.client.dnd.events.*;
-import gwt.material.design.addins.client.dnd.js.*;
+import gwt.material.design.addins.client.dnd.events.DragEndEvent;
+import gwt.material.design.addins.client.dnd.events.DragEnterEvent;
+import gwt.material.design.addins.client.dnd.events.DragLeaveEvent;
+import gwt.material.design.addins.client.dnd.events.DragMoveEvent;
+import gwt.material.design.addins.client.dnd.events.DragStartEvent;
+import gwt.material.design.addins.client.dnd.events.DropActivateEvent;
+import gwt.material.design.addins.client.dnd.events.DropDeactivateEvent;
+import gwt.material.design.addins.client.dnd.events.DropEvent;
+import gwt.material.design.addins.client.dnd.js.JsDnd;
+import gwt.material.design.addins.client.dnd.js.JsDragElementRec;
+import gwt.material.design.addins.client.dnd.js.JsDragOptions;
+import gwt.material.design.addins.client.dnd.js.JsDragRestrictions;
+import gwt.material.design.addins.client.dnd.js.JsDropOptions;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.client.constants.Axis;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
 
 //@formatter:off
 

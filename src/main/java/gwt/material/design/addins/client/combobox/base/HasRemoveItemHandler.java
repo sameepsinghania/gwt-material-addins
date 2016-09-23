@@ -20,9 +20,10 @@ package gwt.material.design.addins.client.combobox.base;
  * #L%
  */
 
+import gwt.material.design.addins.client.combobox.events.RemoveItemEvent;
+
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.HasHandlers;
-import gwt.material.design.addins.client.combobox.events.RemoveItemEvent;
 
 /**
  * @author kevzlou7979

@@ -21,6 +21,12 @@ package gwt.material.design.addins.client.popupmenu;
  */
 
 
+import static gwt.material.design.jquery.client.api.JQuery.$;
+import gwt.material.design.addins.client.MaterialAddins;
+import gwt.material.design.client.MaterialDesignBase;
+import gwt.material.design.client.ui.html.UnorderedList;
+import gwt.material.design.jquery.client.api.JQueryElement;
+
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.HasSelectionHandlers;
@@ -28,12 +34,6 @@ import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
-import gwt.material.design.addins.client.MaterialAddins;
-import gwt.material.design.client.MaterialDesignBase;
-import gwt.material.design.client.ui.html.UnorderedList;
-import gwt.material.design.jquery.client.api.JQueryElement;
-
-import static gwt.material.design.jquery.client.api.JQuery.$;
 
 /**
  * Popup Menu> Menu

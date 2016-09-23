@@ -20,13 +20,14 @@ package gwt.material.design.addins.client.waterfall;
  * #L%
  */
 
-import com.google.gwt.dom.client.Document;
-import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.waterfall.js.JsWaterfall;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.client.base.MaterialWidget;
 import gwt.material.design.jquery.client.api.Functions;
+
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.user.client.ui.Widget;
 
 //@formatter:off
 

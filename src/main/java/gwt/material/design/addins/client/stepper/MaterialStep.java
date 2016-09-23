@@ -20,20 +20,24 @@ package gwt.material.design.addins.client.stepper;
  * #L%
  */
 
+import gwt.material.design.addins.client.stepper.base.mixin.ActiveMixin;
+import gwt.material.design.client.base.HasActive;
+import gwt.material.design.client.base.HasAxis;
+import gwt.material.design.client.base.HasError;
+import gwt.material.design.client.base.HasTitle;
+import gwt.material.design.client.base.MaterialWidget;
+import gwt.material.design.client.constants.Axis;
+import gwt.material.design.client.constants.IconType;
+import gwt.material.design.client.ui.MaterialIcon;
+import gwt.material.design.client.ui.html.Div;
+
 import com.google.gwt.dom.client.Document;
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.HasSelectionHandlers;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.addins.client.stepper.base.mixin.ActiveMixin;
-import gwt.material.design.client.base.*;
-import gwt.material.design.client.constants.Axis;
-import gwt.material.design.client.constants.IconType;
-import gwt.material.design.client.ui.MaterialIcon;
-import gwt.material.design.client.ui.html.Div;
 
 //@formatter:off
 /**
@@ -62,7 +66,8 @@ import gwt.material.design.client.ui.html.Div;
  * @see <a href="http://gwtmaterialdesign.github.io/gwt-material-demo/#steppers">Material Steppers</a>
  */
 // @formatter:on
-public class MaterialStep extends MaterialWidget implements HasActive, HasTitle, HasError, HasAxis, HasSelectionHandlers<MaterialStep> {
+public class MaterialStep extends MaterialWidget implements HasActive, HasTitle, HasError, HasAxis,
+        HasSelectionHandlers<MaterialStep> {
 
     private int step;
     private String title;
@@ -82,7 +87,7 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
     private MaterialIcon iconError = new MaterialIcon(IconType.REPORT_PROBLEM);
     private MaterialIcon iconSuccess = new MaterialIcon(IconType.CHECK_CIRCLE);
     private final ActiveMixin<MaterialStep> activeMixin = new ActiveMixin<>(this);
-    
+
     private Axis axis = Axis.VERTICAL;
 
     public MaterialStep() {
@@ -100,9 +105,9 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
         divLine.setStyleName("line");
         divTitle.setStyleName("title");
         divBody.setStyleName("body");
-        
+
         ClickHandler handler = event -> {
-            if (isEnabled() && isVisible()){
+            if (isEnabled() && isVisible()) {
                 SelectionEvent.fire(MaterialStep.this, MaterialStep.this);
             }
         };
@@ -131,6 +136,7 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
         divTitle.getElement().setInnerHTML(title);
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -170,7 +176,7 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
         addStyleName("success");
         applyIconStatus(iconSuccess, "blue", success);
     }
-    
+
     @Override
     public void setHelperText(String helperText) {
         setDescription(helperText);
@@ -185,8 +191,7 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
         removeStyleName("success");
     }
 
-
-    protected void applyIconStatus(MaterialIcon icon, String color, String description){
+    protected void applyIconStatus(MaterialIcon icon, String color, String description) {
         iconError.removeFromParent();
         iconSuccess.removeFromParent();
         divCircle.removeFromParent();
@@ -197,26 +202,26 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
     public Div getDivBody() {
         return divBody;
     }
-    
+
     @Override
     public void setAxis(Axis axis) {
-        if (axis == null){
+        if (axis == null) {
             axis = Axis.VERTICAL;
         }
         this.axis = axis;
-        switch (axis){
-        case HORIZONTAL:
-            conCircle.add(divTitle);
-            conCircle.add(divLine);
-            conCircle.add(divDescription);
-            break;
-        case VERTICAL:
-            conBody.insert(divTitle, 0);
-            conCircle.add(divLine);
-            break;
+        switch (axis) {
+            case HORIZONTAL:
+                conCircle.add(divTitle);
+                conCircle.add(divLine);
+                conCircle.add(divDescription);
+                break;
+            case VERTICAL:
+                conBody.insert(divTitle, 0);
+                conCircle.add(divLine);
+                break;
         }
     }
-    
+
     @Override
     public Axis getAxis() {
         return axis;
@@ -227,7 +232,7 @@ public class MaterialStep extends MaterialWidget implements HasActive, HasTitle,
         return this.addHandler(new SelectionHandler<MaterialStep>() {
             @Override
             public void onSelection(SelectionEvent<MaterialStep> event) {
-                if(isEnabled()){
+                if (isEnabled()) {
                     handler.onSelection(event);
                 }
             }

@@ -20,12 +20,13 @@ package gwt.material.design.addins.client.swipeable.base;
  * #L%
  */
 
+import gwt.material.design.addins.client.swipeable.events.SwipeLeftEvent;
+import gwt.material.design.addins.client.swipeable.events.SwipeRightEvent;
+
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.HasHandlers;
 import com.google.gwt.user.client.ui.Widget;
-import gwt.material.design.addins.client.swipeable.events.SwipeLeftEvent;
-import gwt.material.design.addins.client.swipeable.events.SwipeRightEvent;
 
 public interface HasSwipeable<T> extends HasHandlers {
 

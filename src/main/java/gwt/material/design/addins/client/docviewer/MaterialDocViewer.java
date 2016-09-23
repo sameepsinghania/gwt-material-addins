@@ -21,8 +21,9 @@ package gwt.material.design.addins.client.docviewer;
  */
 
 
-import com.google.gwt.dom.client.Document;
 import gwt.material.design.client.base.MaterialWidget;
+
+import com.google.gwt.dom.client.Document;
 
 //@formatter:off
 /**

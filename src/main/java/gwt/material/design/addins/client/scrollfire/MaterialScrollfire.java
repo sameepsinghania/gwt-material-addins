@@ -20,12 +20,13 @@ package gwt.material.design.addins.client.scrollfire;
  * #L%
  */
 
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.DOM;
 import gwt.material.design.addins.client.MaterialAddins;
 import gwt.material.design.addins.client.scrollfire.js.JsScrollfire;
 import gwt.material.design.client.MaterialDesignBase;
 import gwt.material.design.jquery.client.api.Functions;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.DOM;
 
 //@formatter:off
 

@@ -21,9 +21,10 @@ package gwt.material.design.addins.client.fileuploader.events;
  */
 
 
+import gwt.material.design.addins.client.fileuploader.base.HasFileUpload;
+
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
-import gwt.material.design.addins.client.fileuploader.base.HasFileUpload;
 
 public class MaxFilesReachedEvent<T> extends GwtEvent<MaxFilesReachedEvent.MaxFilesReachedHandler<T>> {
 
